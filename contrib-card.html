@@ -1,12 +1,35 @@
 <link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../paper-styles/paper-styles.html"/>
 
+<!--
+'contrib-card' is a container to display contributors or team members
+
+Example:
+    <contrib-card src="https://avatars0.githubusercontent.com/u/31785177?s=460&v=4">
+      <div class="name">Jack DeSive</div>
+      <div class="links">@jdesive | sw4pspace.com</div>
+      <div class="title">Software Engineer/Architect</div>
+      <div class="bio">Open Source - Java - C# - C++ - Python - Coffeescript - GWT - Polymer - Angular</div>
+      <div class="actions">
+        <button>Github</button>
+        <button>LinkedIn</button>
+        <button>E-Mail</button>
+      </div>
+    </contrib-card>
+
+Styling:
+'--contrib-card-avatar-backgroud-color' | Avatars background color | white
+
+@group Sw4p Elements
+@element contrib-card
+@demo demo/index.html
+-->
+
 <dom-module id="contrib-card">
 
   <template>
 
     <style>
-      /* shadow DOM styles go here */
       :host {
         display: block;
         margin: 0;
@@ -21,39 +44,42 @@
         border: transparent solid 2px;
         background: var(--contrib-card-avatar-backgroud-color, white);
       }
-      .name {
+      :host ::slotted(.name) {
         margin-top: 16px;
         font-size: 34px;
         text-align: center;
         display: block;
       }
-      .links {
+      :host ::slotted(.links) {
         text-align: center;
         display: block;
         font-size: 16px;
       }
-      .title {
+      :host ::slotted(.title) {
         text-align: center;
         display: block;
         margin-top: 16px;
         font-size: 20px;
       }
-      .bio {
+      :host ::slotted(.bio) {
         text-align: center;
         display: block;
         margin-top: 24px;
         font-size: 14px;
       }
+      :host ::slotted(.actions) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 16px;
+      }
     </style>
 
-    <!-- shadow DOM goes here -->
     <div>
       <img class="avatar" src="[[src]]" width="150" height="150">
-      <span class="name">[[name]]</span>
-      <span class="links">[[social_link]] | [[website]]</span>
-      <span class="title">[[title]]</span>
-      <span class="bio">[[bio]]</span>
     </div>
+    <slot></slot>
+
   </template>
 
   <script>
@@ -65,21 +91,6 @@
       static get properties() {
           return {
               src: {
-                  type: String
-              },
-              name: {
-                  type: String
-              },
-              social_link: {
-                  type: String
-              },
-              website: {
-                  type: String
-              },
-              title: {
-                  type: String
-              },
-              bio: {
                   type: String
               }
           }
