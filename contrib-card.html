@@ -1,0 +1,97 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../paper-styles/paper-styles.html"/>
+
+<dom-module id="contrib-card">
+
+  <template>
+
+    <style>
+      /* shadow DOM styles go here */
+      :host {
+        display: block;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+      }
+      .avatar {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 16px;
+        border-radius: 50%;
+        border: transparent solid 2px;
+        background: var(--contrib-card-avatar-backgroud-color, white);
+      }
+      .name {
+        margin-top: 16px;
+        font-size: 34px;
+        text-align: center;
+        display: block;
+      }
+      .links {
+        text-align: center;
+        display: block;
+        font-size: 16px;
+      }
+      .title {
+        text-align: center;
+        display: block;
+        margin-top: 16px;
+        font-size: 20px;
+      }
+      .bio {
+        text-align: center;
+        display: block;
+        margin-top: 24px;
+        font-size: 14px;
+      }
+    </style>
+
+    <!-- shadow DOM goes here -->
+    <div>
+      <img class="avatar" src="[[src]]" width="150" height="150">
+      <span class="name">[[name]]</span>
+      <span class="links">[[social_link]] | [[website]]</span>
+      <span class="title">[[title]]</span>
+      <span class="bio">[[bio]]</span>
+    </div>
+  </template>
+
+  <script>
+    class ContribCard extends Polymer.Element {
+      static get is() {
+        return 'contrib-card';
+      }
+
+      static get properties() {
+          return {
+              src: {
+                  type: String
+              },
+              name: {
+                  type: String
+              },
+              social_link: {
+                  type: String
+              },
+              website: {
+                  type: String
+              },
+              title: {
+                  type: String
+              },
+              bio: {
+                  type: String
+              }
+          }
+      }
+
+      constructor() {
+        super();
+      }
+
+    }
+    customElements.define(ContribCard.is, ContribCard);
+  </script>
+
+</dom-module>
+
