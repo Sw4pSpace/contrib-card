@@ -34,6 +34,10 @@ Styling:
         display: block;
         margin: 0;
         font-family: 'Roboto', sans-serif;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
       }
       .avatar {
         display: block;
@@ -43,6 +47,7 @@ Styling:
         border-radius: 50%;
         border: transparent solid 2px;
         background: var(--contrib-card-avatar-backgroud-color, white);
+        pointer-events: none;
       }
       :host ::slotted(.name) {
         margin-top: 16px;
