@@ -1,7 +1,7 @@
 {
   "name": "contrib-card",
   "version": "1.0.0",
-  "homepage": "https://github.com/Sw4pSpace/polymer-contrib-card",
+  "homepage": "https://github.com/Sw4pSpace/contrib-card",
   "license": "GNU GPL v3",
   "ignore": [
     "**/.*",
